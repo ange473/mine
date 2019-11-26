@@ -5,17 +5,19 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.TreeSet;
+
 import production.*;
 public class TelcomUser implements User{
 	private String phoneNumber;
 	private String callTo;
-	private HashSet commucationRecords;
+	private TreeSet commucationRecords;
 	public TelcomUser(String phoneNumber){
 		this.phoneNumber=phoneNumber;
-		this.commucationRecords=new HashSet();
+		this.commucationRecords=new TreeSet();
 	}
 	public void printDetails(){
-		/*HashSet°æ±¾*/
+		/*TreeSet°æ±¾*/
 		Iterator it=commucationRecords.iterator();
 		for(;it.hasNext();){
 			String []recordField=((String)(it.next())).split(",");

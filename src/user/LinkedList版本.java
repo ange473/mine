@@ -1,7 +1,6 @@
 package user;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
@@ -9,13 +8,13 @@ import production.*;
 public class TelcomUser implements User{
 	private String phoneNumber;
 	private String callTo;
-	private HashSet commucationRecords;
+	private LinkedList commucationRecords;
 	public TelcomUser(String phoneNumber){
 		this.phoneNumber=phoneNumber;
-		this.commucationRecords=new HashSet();
+		this.commucationRecords=new LinkedList();
 	}
 	public void printDetails(){
-		/*HashSet°æ±¾*/
+		/*LinkedList°æ±¾*/
 		Iterator it=commucationRecords.iterator();
 		for(;it.hasNext();){
 			String []recordField=((String)(it.next())).split(",");
@@ -32,7 +31,7 @@ public class TelcomUser implements User{
 			long timeStart=System.currentTimeMillis()-new Random().nextInt(36000000);
 			long timeEnd=timeStart+60000+new Random().nextInt(600000);
 			callTo=this.getCallToPhoneNumber();
-			this.commucationRecords.add(this.phoneNumber+","+timeStart+","+timeEnd+","+this.callTo+";");
+			this.commucationRecords.add(0,this.phoneNumber+","+timeStart+","+timeEnd+","+this.callTo+";");
 		}
 	}
 	public String getCallToPhoneNumber(){
